@@ -1,0 +1,21 @@
+{
+  "name": "strajk-bowling-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Carolina-Cardenas/Strajk-Bowling-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Carolina-Cardenas/Strajk-Bowling-/issues"
+  },
+  "homepage": "https://github.com/Carolina-Cardenas/Strajk-Bowling-#readme"
+}
