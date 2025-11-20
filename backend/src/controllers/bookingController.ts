@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getApiKey, forwardBooking } from "../services/bookingSevices";
+import { getApiKey, forwardBooking } from "../services/bookingServices";
 
 /** GET /api/key */
 export async function getKeyHandler(_req: Request, res: Response) {
@@ -8,9 +8,9 @@ export async function getKeyHandler(_req: Request, res: Response) {
     return res.json({ key });
   } catch (err: any) {
     console.error("Error getting API key:", err?.message ?? err);
-    return res
-      .status(502)
-      .json({ message: "No se pudo obtener la API key del proveedor." });
+    return res.status(502).json({
+      message: "The API key from the provider could not be obtained.",
+    });
   }
 }
 
@@ -19,17 +19,28 @@ export async function createBookingHandler(req: Request, res: Response) {
   try {
     // validación mínima server-side (defensiva)
     const body = req.body;
+
+    const lanes = Number(body.lanes);
+    const people = Number(body.people);
+
     if (
       !body ||
       !body.when ||
-      !body.lanes ||
-      !body.people ||
+      isNaN(lanes) ||
+      lanes < 1 ||
+      isNaN(people) ||
+      people < 1 ||
       !Array.isArray(body.shoes)
     ) {
-      return res.status(400).json({ message: "Payload inválido." });
+      return res
+        .status(400)
+        .json({ message: "Invalid payload (Missing or Invalid Fields)." });
     }
 
-    const booking = await forwardBooking(body);
+    const payload = { ...body, lanes, people };
+
+    const booking = await forwardBooking(payload);
+    console.log("Booking forwarded, response:", booking);
     return res.json(booking);
   } catch (err: any) {
     // Distinguimos fallo simulado, timeouts, y errores del proveedor

@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import bookingRoutes from "./routers/bookingsRouters";
+import bookingRoutes from "./routes/bookingsRoutes";
 
 const app = express();
 

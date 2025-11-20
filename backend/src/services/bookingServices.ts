@@ -29,22 +29,23 @@ export async function forwardBooking(
     err.code = "SIMULATED_FAILURE";
     throw err;
   }
-
+  console.log("Forwarding booking payload to AWS:", payload);
   // Obtener apiKey desde AWS (proxy)
   const keyResp = await axios.get(`${AWS_BASE}/key`, { timeout: 8000 });
-  const apiKey = (keyResp.data as any)?.key ?? keyResp.data;
 
+  const apiKey = (keyResp.data as any)?.key ?? keyResp.data;
+  console.log("Obtained API key from AWS:", apiKey.data.key);
   const resp = await axios.post<BookingResponse>(
     `${AWS_BASE}/booking`,
     payload,
     {
       headers: {
-        "x-api-key": apiKey,
+        "x-api-key": apiKey.data.key,
         "Content-Type": "application/json",
       },
       timeout: 10000,
     }
   );
-
+  console.log("Booking response from AWS:", resp.data);
   return resp.data;
 }
