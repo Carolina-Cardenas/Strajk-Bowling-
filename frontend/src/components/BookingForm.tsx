@@ -23,9 +23,8 @@ const BookingForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const setBookingData = useStore((s) => s.setBookingData);
-  const setBookingResponse = useStore(
-    (s) => (s as any).setBookingResponse ?? (() => {})
-  );
+  const submitBooking = useStore((s) => s.submitBooking);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -73,24 +72,27 @@ const BookingForm: React.FC = () => {
       people,
       shoes,
     };
-
+    console.log("Payload a enviar:", payload);
     setLoading(true);
     try {
       // Guardar request en store (opcional)
       setBookingData(payload);
 
-      // Llamada directa para mostrar manejo de errores sin depender de zustand
+      // 1. La llamada al backend
       const resp = await client.post("/booking", payload);
-      // resp.data tiene la BookingResponse
-      // Guardar manualmente en store para Confirmation
-      (useStore.getState() as any).bookingResponse = resp.data;
+      if (!resp || !resp.data) {
+        throw new Error("No response was received from the backend.");
+      }
+      // 2. Guardar la respuesta en el store (ESTO ES CLAVE)
+      await submitBooking();
+      // 3. Navegar a la página de confirmación
       navigate("/confirmation");
     } catch (err: any) {
       const msg =
         err?.response?.data?.message ||
         err?.message ||
-        "No se pudo completar la reserva.";
-      setError(`Error al reservar: ${msg}`);
+        "The reservation could not be completed.";
+      setError(`Error booking: ${msg}`);
     } finally {
       setLoading(false);
     }

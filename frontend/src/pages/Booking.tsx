@@ -10,6 +10,7 @@ const Booking: React.FC = () => {
       </header>
       <main>
         <h1 className="page-title">BOOKING</h1>
+        <h3 className="page-subtitle">When, WHAT & Who</h3>
         <BookingForm />
       </main>
     </div>

@@ -10,7 +10,7 @@ const NavMenu: React.FC = () => {
       <button
         className="menu-icon"
         onClick={() => setOpen(!open)}
-        aria-label="menu"
+        aria-label="Toggle menu"
       >
         <div className="bars">
           <span></span>

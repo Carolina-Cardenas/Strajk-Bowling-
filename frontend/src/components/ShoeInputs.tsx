@@ -8,12 +8,13 @@ interface ShoeInputsProps {
 
 const ShoeInputs = ({ count, values, onChange }: ShoeInputsProps) => {
   return (
-    <div className="container">
+    <div className="shoe-input-container">
       {Array.from({ length: count }).map((_, i) => (
-        <div className="row" key={i}>
-          <label htmlFor={`shoe-${i}`}>Shoe size / person {i + 1}</label>
+        <div className="shoe-input-row" key={i}>
+          <label htmlFor={`shoe-${i}`}>Size / Person {i + 1}</label>
           <input
             id={`shoe-${i}`}
+            className="shoe-input"
             type="number"
             min={20}
             max={50}

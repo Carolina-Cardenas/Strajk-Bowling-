@@ -1,29 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;600;700;800&display=swap');
+
 
 :root {
-    --bg: rgba(255, 244, 241, 1);
-    /* fondo general */
-    --accent: rgba(236, 49, 90, 1);
-    /* rojo / botones */
-    --purple: rgba(68, 29, 129, 1);
-    /* morado (lineas / headings) */
-    --nav-bg: rgba(28, 25, 25, 1);
-    /* fondo nav lateral */
-    --menu-bg: rgba(236, 49, 90, 0.12);
-    /* fondo item menu (hover/active) */
-    --line-color: rgba(68, 29, 129, 1);
-    /* lineas secciones */
-    --field-text: rgba(34, 34, 34, 1);
-    /* texto dentro de inputs */
-    --muted: #7a6a7a;
+    --bg: #FFF4F1;
+    /* Light Pink/Orange Background */
+    --accent: #EC315A;
+    /* Red/Pink Accent (Buttons, Titles) */
+    --purple: #441D81;
+    /* Dark Purple (Text, Lines, Borders) */
+    --nav-bg: #1C1919;
+    /* Menu Drawer Background */
+    --field-text: #222222;
+    /* Text inside inputs */
+    --muted: #7A6A7A;
     --white: #ffffff;
+    --error: #900;
 
     --max-width: 420px;
     --page-padding: 22px;
     --radius: 8px;
 }
 
-/* Reset / layout */
+/* --- 2. Global Reset and Layout --- */
 * {
     box-sizing: border-box;
 }
@@ -39,6 +37,25 @@ body,
     -moz-osx-font-smoothing: grayscale;
 }
 
+.app-container {
+    display: flex;
+    justify-content: center;
+    padding: 16px 0;
+    min-height: 100vh;
+}
+
+.mobile-screen {
+    width: 100%;
+    max-width: var(--max-width);
+    background: var(--bg);
+    margin: 0 auto;
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    padding: 0;
+}
+
+
 a {
     color: inherit;
     text-decoration: none;
@@ -48,90 +65,17 @@ button {
     font-family: inherit;
 }
 
-/* Center app container for mobile preview */
-.app-root {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+.page {
+    padding: 22px 18px 28px;
 }
 
-/* Basic components */
-.container-card {
-    max-width: var(--max-width);
-    width: 100%;
-    background: var(--bg);
-    margin: 0 auto;
-    padding: var(--page-padding);
-    border-radius: 10px;
-    min-height: 100vh;
-}
-
-/* Helpers */
-.h-center {
-    text-align: center;
-}
-
-.small-muted {
-    font-size: 12px;
-    color: var(--muted);
-}
-
-.divider-line {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--purple);
-    font-weight: 700;
-    text-transform: uppercase;
+.page-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 40px;
+    color: var(--accent);
+    margin: 8px 0 10px;
     letter-spacing: 0.02em;
-}
-
-/* Buttons base */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.btn-ghost {
-    background: transparent;
-}
-
-.btn-primary {
-    background: var(--accent);
-    color: var(--white);
-    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.06);
-}
-
-.readonly-field {
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid rgba(230, 217, 224, 1);
-    background: white;
-    color: var(--field-text);
-    font-size: 16px;
-}
-
-/* Icon placeholders (if you use images) */
-.logo-large {
-    width: 96px;
-    height: 96px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin: 8px auto 6px;
-}
-
-.logo-small {
-    width: 56px;
-    height: 56px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    display: inline-block;
+    text-align: center;
 }
 
 /* Section title with lines */
@@ -153,6 +97,260 @@ button {
     content: "";
     height: 2px;
     width: 86px;
-    background: var(--line-color);
+    background: var(--purple);
     display: block;
+}
+
+/* --- 4. Logo/Header --- */
+.logo-header {
+    text-align: center;
+    padding-top: 18px;
+    padding-bottom: 6px;
+}
+
+.logo-text {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 56px;
+    color: var(--purple);
+    line-height: 1;
+    margin: 0;
+    letter-spacing: 0.1em;
+}
+
+/* --- 5. Form & Inputs --- */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.form label {
+    display: block;
+    font-size: 12px;
+    color: var(--purple);
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.form input[type="datetime-local"],
+.form input[type="number"],
+.form input[type="text"] {
+    width: 100%;
+    padding: 14px;
+    border-radius: 6px;
+    border: 1.8px solid var(--purple);
+    background: var(--white);
+    color: var(--field-text);
+    font-size: 16px;
+    outline: none;
+}
+
+.form input[type="datetime-local"] {
+    border-color: var(--accent);
+    /* Special style for time/date box */
+}
+
+.form h3 {
+    text-align: center;
+    color: var(--purple);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+
+.form .error {
+    background: #ffe6e6;
+    color: var(--error);
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.form .submit {
+    margin-top: 18px;
+    background: var(--accent);
+    color: var(--white);
+    padding: 16px;
+    border-radius: 8px;
+    border: 0;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form .submit:disabled {
+    background: var(--muted);
+    cursor: not-allowed;
+}
+
+/* --- 6. Shoe Inputs (From shoeInputs.css) --- */
+.shoe-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.shoe-input-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.shoe-input-row input {
+    flex: 1;
+    border-radius: 8px;
+    padding: 14px;
+    border: 1.8px solid var(--purple);
+    font-size: 16px;
+    color: var(--field-text);
+}
+
+
+/* --- 7. Confirmation Page (From confirmation.css) --- */
+.confirmation-page {
+    text-align: center;
+}
+
+.confirmation-card {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--bg);
+    text-align: left;
+}
+
+.field-group label {
+    font-size: 12px;
+    color: var(--purple);
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.readonly-field {
+    border: 1.8px solid var(--purple);
+    border-radius: 6px;
+    padding: 12px;
+    background: var(--white);
+    color: var(--field-text);
+    font-size: 16px;
+}
+
+.total-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1.4px solid var(--accent);
+    background: var(--white);
+    margin-top: 10px;
+}
+
+.total-label {
+    font-weight: 800;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+.total-value {
+    font-weight: 700;
+    color: var(--field-text);
+    font-size: 18px;
+}
+
+.confirmation-cta {
+    margin-top: 18px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: var(--white);
+    font-weight: 800;
+    border: 0;
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+}
+
+/* --- 8. Navigation Menu (From navMenu.css) --- */
+.menu-icon {
+    position: absolute;
+    left: 18px;
+    top: 22px;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: rgba(236, 49, 90, 0.12);
+    /* var(--accent) with low opacity */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 60;
+    border: 0;
+    cursor: pointer;
+}
+
+.menu-icon .bars {
+    width: 18px;
+    height: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-icon .bars span {
+    display: block;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 1px;
+}
+
+.menu-drawer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 240px;
+    background: var(--nav-bg);
+    padding: 28px 18px;
+    z-index: 100;
+    color: #f0d4da;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.menu-drawer ul {
+    list-style: none;
+    padding: 0;
+    margin: 40px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    text-align: center;
+}
+
+.menu-drawer a {
+    color: #f0d4da;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    display: block;
+    padding: 8px;
+}
+
+.menu-drawer a:hover {
+    background: var(--accent);
+    opacity: 0.8;
+    border-radius: 4px;
+}
+
+.menu-item-active {
+    background: var(--accent);
+    padding: 8px;
+    border-radius: 4px;
 }

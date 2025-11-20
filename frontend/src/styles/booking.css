@@ -12,7 +12,7 @@
 /* menu icon top-left */
 .hamburger {
     position: absolute;
-    left: 20px;
+    left: 80px;
     top: 28px;
     width: 44px;
     height: 44px;
@@ -34,10 +34,18 @@
 .booking-title {
     font-family: "Bebas Neue", sans-serif;
     font-size: 40px;
-    /* elegido para maquetado */
     color: var(--accent);
     margin: 8px 0 10px;
     letter-spacing: 0.02em;
+}
+
+.page-subtitle {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 30px;
+    letter-spacing: 0.02em;
+    margin: 8px 0 10px;
+    color: var(--purple);
+
 }
 
 /* Subheading (WHEN, WHAT & WHO) */
