@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../store/useStore";
-import "./Confirmation.css";
+import "../styles/Confirmation.css";
 
 const Confirmation: React.FC = () => {
   const booking = useStore((s) => s.bookingResponse);
@@ -10,49 +10,49 @@ const Confirmation: React.FC = () => {
   if (!booking) {
     return (
       <div className="confirmation-page">
-        <p>No booking found</p>
-        <button onClick={() => navigate("/")}>Back</button>
+        <div className="confirmation-card">
+          <p>No booking found</p>
+          <button className="confirmation-cta" onClick={() => navigate("/")}>
+            Back
+          </button>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="confirmation-container">
+    <div className="confirmation-page">
+      <h1 className="confirmation-title">SEE YOU SOON!</h1>
+
       <div className="confirmation-card">
         <div className="field-group">
-          <label htmlFor="when">When</label>
-          <div id="when" className="readonly-field">
+          <label>When</label>
+          <div className="readonly-field">
             {new Date(booking.when).toLocaleString()}
           </div>
         </div>
 
         <div className="field-group">
-          <label htmlFor="who">Who</label>
-          <div id="who" className="readonly-field">
-            {booking.people} pers
-          </div>
+          <label>Who</label>
+          <div className="readonly-field">{booking.people} pers</div>
         </div>
 
         <div className="field-group">
-          <label htmlFor="lanes">Lanes</label>
-          <div id="lanes" className="readonly-field">
-            {booking.lanes} lane
-          </div>
+          <label>Lanes</label>
+          <div className="readonly-field">{booking.lanes} lane</div>
         </div>
 
         <div className="field-group">
-          <label htmlFor="booking-number">Booking number</label>
-          <div id="booking-number" className="readonly-field">
-            {booking.id}
-          </div>
+          <label>Booking number</label>
+          <div className="readonly-field">{booking.id}</div>
         </div>
 
-        <div className="total-row">
+        <div className="total-box">
           <div className="total-label">total</div>
           <div className="total-value">{booking.price} sek</div>
         </div>
 
-        <button className="primary" onClick={() => navigate("/")}>
+        <button className="confirmation-cta" onClick={() => navigate("/")}>
           SWEET, LETS GO!
         </button>
       </div>

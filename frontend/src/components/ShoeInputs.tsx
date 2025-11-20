@@ -1,4 +1,4 @@
-//import styles from "./ShoeInputs.module.css";
+import "../styles/ShoeInputs.css";
 
 interface ShoeInputsProps {
   count: number;
@@ -8,9 +8,9 @@ interface ShoeInputsProps {
 
 const ShoeInputs = ({ count, values, onChange }: ShoeInputsProps) => {
   return (
-    <div className={styles.container}>
+    <div className="container">
       {Array.from({ length: count }).map((_, i) => (
-        <div className={styles.row} key={i}>
+        <div className="row" key={i}>
           <label htmlFor={`shoe-${i}`}>Shoe size / person {i + 1}</label>
           <input
             id={`shoe-${i}`}

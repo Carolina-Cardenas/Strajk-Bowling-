@@ -1,7 +1,6 @@
 import React from "react";
-//import styles from "./NavMenu.module.css";
+import "../styles/NavMenu.css";
 import { Link } from "react-router-dom";
-import { useStore } from "../store/useStore";
 
 const NavMenu: React.FC = () => {
   const [open, setOpen] = React.useState(false);
@@ -9,14 +8,19 @@ const NavMenu: React.FC = () => {
   return (
     <>
       <button
-        className={styles.icon}
+        className="menu-icon"
         onClick={() => setOpen(!open)}
         aria-label="menu"
       >
-        ≡
+        <div className="bars">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </button>
+
       {open && (
-        <aside className={styles.drawer}>
+        <aside className="menu-drawer">
           <nav>
             <ul>
               <li>

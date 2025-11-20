@@ -1,0 +1,56 @@
+/* BookingForm.css */
+@import "../styles/mobile.css";
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+/* labels */
+.form .field-label {
+    font-size: 12px;
+    color: var(--purple);
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+/* inputs */
+.form input[type="datetime-local"],
+.form input[type="number"],
+.form input[type="text"] {
+    padding: 14px;
+    border-radius: 6px;
+    border: 1.8px solid var(--purple);
+    background: #fff;
+    color: var(--field-text);
+    font-size: 16px;
+    outline: none;
+}
+
+/* special style for time box (red border) */
+.form input.time {
+    border-color: rgba(236, 49, 90, 1);
+}
+
+/* error */
+.form .error {
+    background: #ffe6e6;
+    color: #900;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* submit */
+.form .submit {
+    margin-top: 12px;
+    background: var(--accent);
+    color: white;
+    padding: 14px;
+    border-radius: 8px;
+    border: 0;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+}

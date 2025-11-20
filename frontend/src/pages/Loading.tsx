@@ -1,5 +1,5 @@
 import React from "react";
-import "../pages/Booking.css";
+import "../styles/Booking.css";
 
 export default function Loading() {
   return (

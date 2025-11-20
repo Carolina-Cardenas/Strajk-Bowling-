@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ShoeInputs from "./ShoeInputs";
-//
+import "../styles/BookingForm.css";
 import { useStore } from "../store/useStore";
 import { BookingRequest } from "../types/booking";
 import { client } from "../api/client";
@@ -8,12 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 /**
  * BookingForm: valida localmente y envía al backend local (/api/booking)
- * - Validaciones:
- *   * lanes >=1
- *   * people >=1
- *   * people <= lanes * 4
- *   * shoes.length === people
- *   * tallas entre 20..50
  */
 
 const BookingForm: React.FC = () => {
@@ -103,7 +97,7 @@ const BookingForm: React.FC = () => {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <label>
         Date & time
         <input
@@ -138,12 +132,12 @@ const BookingForm: React.FC = () => {
       <ShoeInputs count={people} values={shoes} onChange={handleShoeChange} />
 
       {error && (
-        <div role="alert" className={styles.error}>
+        <div role="alert" className="error">
           {error}
         </div>
       )}
 
-      <button type="submit" className={styles.submit} disabled={loading}>
+      <button type="submit" className="submit" disabled={loading}>
         {loading ? "Reservando..." : "STRIIIKE!"}
       </button>
     </form>

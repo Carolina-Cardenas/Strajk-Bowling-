@@ -1,0 +1,19 @@
+/* Loading.css */
+@import "../styles/mobile.css";
+
+.loading-screen {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+}
+
+.loading-screen .logo-large {
+    width: 160px;
+    height: 160px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}

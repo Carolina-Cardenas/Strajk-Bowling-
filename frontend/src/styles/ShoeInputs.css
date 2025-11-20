@@ -1,0 +1,85 @@
+/* ShoeInputs.css */
+@import "../styles/mobile.css";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.input {
+    flex: 1;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1.8px solid var(--purple);
+    font-size: 16px;
+    color: var(--field-text);
+}
+
+
+.shoe-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.shoe-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.shoe-row .field-input {
+    flex: 1;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1.8px solid var(--purple);
+    font-size: 16px;
+    color: var(--field-text);
+}
+
+/* round minus button - created with pseudo lines for accessibility */
+.shoe-remove {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    position: relative;
+    border: 0;
+}
+
+/* draw minus with pseudo-element */
+.shoe-remove::after {
+    content: "";
+    width: 18px;
+    height: 3px;
+    background: #fff;
+    display: block;
+    border-radius: 2px;
+}
+
+/* plus center button style (bigger) */
+.shoe-add {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    border: 0;
+    margin: 12px auto 0;
+}

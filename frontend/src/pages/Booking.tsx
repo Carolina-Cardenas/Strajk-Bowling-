@@ -1,6 +1,6 @@
 import React from "react";
 import BookingForm from "../components/BookingForm";
-import "./Booking.css";
+import "../styles/booking.css";
 
 const Booking: React.FC = () => {
   return (

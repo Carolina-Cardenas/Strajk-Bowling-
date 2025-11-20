@@ -1,0 +1,166 @@
+/* Booking.css */
+@import "../styles/mobile.css";
+
+.booking-page {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 8px 18px 28px;
+    background: var(--bg);
+    min-height: 100vh;
+}
+
+/* menu icon top-left */
+.hamburger {
+    position: absolute;
+    left: 20px;
+    top: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: rgba(236, 49, 90, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* Title / Logo */
+.booking-header {
+    text-align: center;
+    padding-top: 18px;
+    padding-bottom: 6px;
+}
+
+.booking-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 40px;
+    /* elegido para maquetado */
+    color: var(--accent);
+    margin: 8px 0 10px;
+    letter-spacing: 0.02em;
+}
+
+/* Subheading (WHEN, WHAT & WHO) */
+.subheading {
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+
+.subheading .section-title {
+    font-size: 14px;
+}
+
+/* Grid for date/time */
+.grid-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+/* Input boxes */
+.field-label {
+    display: block;
+    font-size: 12px;
+    color: var(--purple);
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.field-input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 6px;
+    border: 1.8px solid var(--purple);
+    font-size: 16px;
+    color: var(--field-text);
+    background: #fff;
+    outline: none;
+}
+
+.field-input.time {
+    border-color: rgba(236, 49, 90, 1);
+    /* tiempo en rojo */
+}
+
+/* Single full field */
+.field-wrap {
+    margin-bottom: 14px;
+}
+
+/* Shoes section styles */
+.shoes-title {
+    margin-top: 18px;
+    margin-bottom: 8px;
+    text-align: center;
+    color: var(--purple);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+/* Shoe row */
+.shoe-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.shoe-input {
+    flex: 1;
+}
+
+.shoe-input .field-label {
+    margin-bottom: 6px;
+}
+
+.shoe-input .field-input {
+    border-radius: 8px;
+    border: 1.8px solid var(--purple);
+}
+
+/* round action buttons + / - */
+.circle-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.06);
+    border: 0;
+    cursor: pointer;
+}
+
+/* plus smaller and centered under rows */
+.plus-center {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px auto;
+    color: white;
+    font-weight: 700;
+    font-size: 28px;
+    border: 0;
+}
+
+/* STRIIIKE button (full width) */
+.strike-btn {
+    width: 100%;
+    margin-top: 18px;
+    background: var(--accent);
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+    border: 0;
+}

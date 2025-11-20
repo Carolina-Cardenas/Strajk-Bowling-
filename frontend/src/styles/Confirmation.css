@@ -1,0 +1,77 @@
+@import "../styles/mobile.css";
+
+.confirmation-page {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 8px 18px 28px;
+    background: var(--bg);
+    min-height: 100vh;
+}
+
+.confirmation-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 40px;
+    color: var(--accent);
+    margin: 8px 0 12px;
+    text-align: center;
+}
+
+.confirmation-card {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--bg);
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.field-group label {
+    font-size: 12px;
+    color: var(--purple);
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.readonly-field {
+    border: 1.8px solid var(--purple);
+    border-radius: 6px;
+    padding: 12px;
+    background: #fff;
+    color: var(--field-text);
+    font-size: 16px;
+}
+
+.total-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1.4px solid rgba(236, 49, 90, 1);
+    background: #fff;
+}
+
+.total-label {
+    font-weight: 800;
+    color: rgba(236, 49, 90, 1);
+}
+
+.total-value {
+    font-weight: 700;
+    color: rgba(34, 34, 34, 1);
+}
+
+.confirmation-cta {
+    margin-top: 12px;
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: white;
+    font-weight: 800;
+    border: 0;
+}

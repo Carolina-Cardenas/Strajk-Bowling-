@@ -1,4 +1,4 @@
-import create from "zustand";
+import { create } from "zustand";
 import { BookingResponse, BookingRequest } from "../types/booking";
 import { client } from "../api/client";
 

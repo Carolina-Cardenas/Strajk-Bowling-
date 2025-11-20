@@ -4,6 +4,7 @@ import Loading from "./pages/Loading";
 import Booking from "./pages/Booking";
 import Confirmation from "./pages/Confirmation";
 import NavMenu from "./components/NavMenu";
+import Nav from "./components/NavMenu";
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
         <Route path="/" element={<Booking />} />
         <Route path="/loading" element={<Loading />} />
         <Route path="/confirmation" element={<Confirmation />} />
+        <Route path="/NavMenu" element={<Nav />} />
       </Routes>
     </div>
   );

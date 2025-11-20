@@ -1,0 +1,72 @@
+/* NavMenu.css */
+@import "../styles/mobile.css";
+
+.menu-icon {
+    position: fixed;
+    left: 18px;
+    top: 22px;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: rgba(236, 49, 90, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 60;
+    border: 0;
+}
+
+/* three lines inside the icon */
+.menu-icon .bars {
+    width: 18px;
+    height: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-icon .bars span {
+    display: block;
+    height: 2px;
+    background: rgba(236, 49, 90, 1);
+    border-radius: 1px;
+}
+
+/* Drawer */
+.menu-drawer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 240px;
+    background: var(--nav-bg);
+    padding: 28px 18px;
+    z-index: 100;
+    color: #f0d4da;
+}
+
+/* menu items */
+.menu-drawer ul {
+    list-style: none;
+    padding: 0;
+    margin: 40px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    text-align: center;
+}
+
+.menu-drawer a {
+    color: #f0d4da;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+}
+
+/* drawer background for active item */
+.menu-item-active {
+    background: var(--menu-bg);
+    padding: 12px;
+    border-radius: 8px;
+}
