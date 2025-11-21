@@ -6,11 +6,17 @@ export interface BookingRequest {
 }
 
 export interface BookingResponse {
-  when: string;
-  lanes: number;
-  people: number;
-  shoes: number[];
-  price: number;
-  id: string;
-  active: boolean;
+  bookingDetails: {
+    when: string;
+    lanes: number;
+    people: number;
+    shoes: number[];
+    price: number;
+    id: string;
+    active: boolean;
+  };
+}
+
+export interface ApiKeyResponse {
+  key: string;
 }

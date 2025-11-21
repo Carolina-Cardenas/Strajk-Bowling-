@@ -1,14 +1,6 @@
 import axios from "axios";
 import { BookingRequest, BookingResponse } from "../types/booking";
 
-/**
- * Service que hace proxy al API real de AWS.
- * - GET /key -> proxy a AWS /key
- * - POST /booking -> proxy a AWS /booking
- *
- * También simula fallo aleatorio (20%) para reproducir inestabilidad.
- */
-
 const AWS_BASE = "https://731xy9c2ak.execute-api.eu-north-1.amazonaws.com";
 
 export async function getApiKey(): Promise<string> {
@@ -34,13 +26,14 @@ export async function forwardBooking(
   const keyResp = await axios.get(`${AWS_BASE}/key`, { timeout: 8000 });
 
   const apiKey = (keyResp.data as any)?.key ?? keyResp.data;
-  console.log("Obtained API key from AWS:", apiKey.data.key);
+
+  console.log("Obtained API key from AWS:", apiKey);
   const resp = await axios.post<BookingResponse>(
     `${AWS_BASE}/booking`,
     payload,
     {
       headers: {
-        "x-api-key": apiKey.data.key,
+        "x-api-key": apiKey,
         "Content-Type": "application/json",
       },
       timeout: 10000,
