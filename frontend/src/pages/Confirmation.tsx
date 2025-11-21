@@ -4,21 +4,32 @@ import { useStore } from "../store/useStore";
 import "../styles/Confirmation.css";
 
 const Confirmation: React.FC = () => {
-  const booking = useStore((s) => s.bookingResponse);
   const navigate = useNavigate();
+  const bookingResponse = useStore((s) => s.bookingResponse);
 
-  if (!booking) {
+  console.log("Confirmation: valor leído de bookingResponse:", bookingResponse);
+
+  if (!bookingResponse || !bookingResponse.bookingDetails) {
     return (
       <div className="confirmation-page">
         <div className="confirmation-card">
           <p>No booking found</p>
-          <button className="confirmation-cta" onClick={() => navigate("/")}>
-            Back
+          <button className="btn-cta" onClick={() => navigate("/")}>
+            Return to Booking
           </button>
         </div>
       </div>
     );
   }
+  const booking = bookingResponse.bookingDetails;
+  const formattedDate = new Date(booking.when).toLocaleString("es-ES", {
+    weekday: "short",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 
   return (
     <div className="confirmation-page">
@@ -27,9 +38,7 @@ const Confirmation: React.FC = () => {
       <div className="confirmation-card">
         <div className="field-group">
           <label>When</label>
-          <div className="readonly-field">
-            {new Date(booking.when).toLocaleString()}
-          </div>
+          <div className="readonly-field">{formattedDate}</div>
         </div>
 
         <div className="field-group">

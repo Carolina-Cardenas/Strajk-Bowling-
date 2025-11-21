@@ -6,10 +6,6 @@ import { BookingRequest } from "../types/booking";
 import { client } from "../api/client";
 import { useNavigate } from "react-router-dom";
 
-/**
- * BookingForm: valida localmente y envía al backend local (/api/booking)
- */
-
 const BookingForm: React.FC = () => {
   const [when, setWhen] = useState<string>(() => {
     const d = new Date();
@@ -18,34 +14,34 @@ const BookingForm: React.FC = () => {
   });
   const [lanes, setLanes] = useState<number>(1);
   const [people, setPeople] = useState<number>(1);
-  const [shoes, setShoes] = useState<number[]>([44]);
+  const [shoes, setShoes] = useState<number[]>([43]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   const setBookingData = useStore((s) => s.setBookingData);
-  const submitBooking = useStore((s) => s.submitBooking);
+  const setBookingResponse = useStore((s) => s.setBookingResponse);
+  // const submitBooking = useStore((s) => s.submitBooking);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     if (people > shoes.length) {
-      setShoes((prev) => [...prev, ...Array(people - prev.length).fill(44)]);
+      setShoes((prev) => [...prev, ...Array(people - prev.length).fill(43)]);
     } else if (people < shoes.length) {
       setShoes((prev) => prev.slice(0, people));
     }
   }, [people]);
 
   const validate = (): string | null => {
-    if (!when) return "Selecciona fecha y hora.";
-    if (lanes < 1) return "Debes seleccionar al menos 1 pista.";
-    if (people < 1) return "Debes seleccionar al menos 1 jugador.";
+    if (!when) return "Select date and time.";
+    if (lanes < 1) return "You must select at least 1 track.";
+    if (people < 1) return "You must select at least 1 player.";
     const maxPlayers = lanes * 4;
     if (people > maxPlayers)
-      return `Con ${lanes} pista(s) el máximo es ${maxPlayers} jugadores.`;
-    if (shoes.length !== people)
-      return "Debes ingresar una talla por cada jugador.";
-    if (shoes.some((s) => !s || s < 20 || s > 50))
-      return "Todas las tallas deben estar entre 20 y 50.";
+      return `With ${lanes} track(s) the maximum is ${maxPlayers} players.`;
+    if (shoes.length !== people) return "You must enter one size per player.";
+    if (shoes.some((s) => !s || s < 38 || s > 43))
+      return "All sizes must be between 38 and 43.";
     return null;
   };
 
@@ -72,10 +68,9 @@ const BookingForm: React.FC = () => {
       people,
       shoes,
     };
-    console.log("Payload a enviar:", payload);
+    console.log("Payload to send:", payload);
     setLoading(true);
     try {
-      // Guardar request en store (opcional)
       setBookingData(payload);
 
       // 1. La llamada al backend
@@ -83,8 +78,11 @@ const BookingForm: React.FC = () => {
       if (!resp || !resp.data) {
         throw new Error("No response was received from the backend.");
       }
+
       // 2. Guardar la respuesta en el store (ESTO ES CLAVE)
-      await submitBooking();
+
+      setBookingResponse(resp.data);
+
       // 3. Navegar a la página de confirmación
       navigate("/confirmation");
     } catch (err: any) {
@@ -140,7 +138,7 @@ const BookingForm: React.FC = () => {
       )}
 
       <button type="submit" className="submit" disabled={loading}>
-        {loading ? "Reservando..." : "STRIIIKE!"}
+        {loading ? "Booking..." : "STRIIIKE!"}
       </button>
     </form>
   );
