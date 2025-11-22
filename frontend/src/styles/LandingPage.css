@@ -1,0 +1,57 @@
+@import "../styles/NavMenu.css";
+
+.landing-page {
+    position: relative;
+    max-width: var(--max-width);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    margin: 0 auto;
+    padding: 8px 18px 28px;
+    min-height: 100vh;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.brand-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.logo-title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: rgba(236, 49, 90, 1);
+    margin: 0;
+}
+
+.logo-subtitle {
+    font-size: 1.5rem;
+    color: var(--purple);
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    margin-top: -0.5rem;
+}
+
+.start-button {
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    background-color: #ec3f62;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.start-button:hover {
+    opacity: 0.9;
+}

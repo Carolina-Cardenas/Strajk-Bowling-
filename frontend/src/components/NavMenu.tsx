@@ -24,7 +24,7 @@ const NavMenu: React.FC = () => {
           <nav>
             <ul>
               <li>
-                <Link to="/" onClick={() => setOpen(false)}>
+                <Link to="/booking" onClick={() => setOpen(false)}>
                   Booking
                 </Link>
               </li>

@@ -2,18 +2,19 @@
 @import "../styles/mobile.css";
 
 .menu-icon {
-    position: fixed;
-    left: 18px;
-    top: 22px;
+    position: absolute;
+    top: 16px;
+    left: 16px;
     width: 44px;
     height: 44px;
+    background: rgba(255, 244, 241, 1);
     border-radius: 8px;
-    background: rgba(236, 49, 90, 0.12);
     display: flex;
     align-items: center;
     justify-content: center;
+    border: none;
+    cursor: pointer;
     z-index: 60;
-    border: 0;
 }
 
 /* three lines inside the icon */
@@ -23,6 +24,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 }
 
 .menu-icon .bars span {
@@ -34,15 +36,17 @@
 
 /* Drawer */
 .menu-drawer {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
+
+    position: absolute;
+    top: 70px;
+    left: 16px;
     width: 240px;
     background: var(--nav-bg);
     padding: 28px 18px;
     z-index: 100;
     color: #f0d4da;
+    border-radius: 8px;
+    height: 280px;
 }
 
 /* menu items */
@@ -53,7 +57,7 @@
     display: flex;
     flex-direction: column;
     gap: 26px;
-    text-align: center;
+    text-align: left;
 }
 
 .menu-drawer a {

@@ -1,28 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "../styles/App.css";
+import { useNavigate } from "react-router-dom";
+import "../styles/LandingPage.css";
+import NavMenu from "@components/NavMenu";
 
-const Home: React.FC = () => {
+const LandingPage: React.FC = () => {
+  const navigate = useNavigate();
+  const handleStart = () => {
+    navigate("/booking");
+  };
+
   return (
-    <div className="page home-page">
-      <header className="logo-header">
-        <div className="home-logo-container">
-          <img
-            src="logo(1).svg"
-            alt="Logo de STRAJK Bowling"
-            className="home-brand-logo"
-          />
-        </div>
-        <h1 className="logo-text">STRAJK</h1>
-        <p className="small-muted"> bowling</p>
-      </header>
-      <main className="home-main-content">
-        <Link to="/booking" className="confirmation-cta home-cta-link">
-          START BOOKING
-        </Link>
-      </main>
+    <div className="landing-page">
+      <NavMenu />
+      <div className="logo-container">
+        <img
+          src="/img/logo.svg"
+          alt="STRAJK Bowling Logo"
+          className="brand-logo"
+        />
+        <h1 className="logo-title">STRAJK</h1>
+        <h2 className="logo-subtitle">BOWLING</h2>
+      </div>
     </div>
   );
 };
 
-export default Home;
+export default LandingPage;

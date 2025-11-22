@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../store/useStore";
 import "../styles/Confirmation.css";
+import NavMenu from "@components/NavMenu";
 
 const Confirmation: React.FC = () => {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ const Confirmation: React.FC = () => {
 
   return (
     <div className="confirmation-page">
+      <NavMenu />
       <h1 className="confirmation-title">SEE YOU SOON!</h1>
 
       <div className="confirmation-card">
@@ -53,7 +55,7 @@ const Confirmation: React.FC = () => {
 
         <div className="field-group">
           <label>Booking number</label>
-          <div className="readonly-field">{booking.id}</div>
+          <div className="readonly-field">{booking.bookingId}</div>
         </div>
 
         <div className="total-box">

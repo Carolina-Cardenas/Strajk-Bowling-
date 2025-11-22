@@ -1,27 +1,17 @@
 /* Booking.css */
-@import "../styles/mobile.css";
+@import "../styles/NavMenu.css";
+
+
 
 .booking-page {
+
+    position: relative;
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 8px 18px 28px;
     background: var(--bg);
     min-height: 100vh;
-}
 
-/* menu icon top-left */
-.hamburger {
-    position: absolute;
-    left: 80px;
-    top: 28px;
-    width: 44px;
-    height: 44px;
-    border-radius: 8px;
-    background: rgba(236, 49, 90, 0.12);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 /* Title / Logo */
@@ -45,6 +35,8 @@
     letter-spacing: 0.02em;
     margin: 8px 0 10px;
     color: var(--purple);
+    align-items: center;
+    text-align: center;
 
 }
 

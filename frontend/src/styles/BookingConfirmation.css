@@ -1,0 +1,18 @@
+.confirmation-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    height: 100vh;
+}
+
+.confirmation-content {
+    text-align: center;
+}
+
+.confirmation-title {
+    color: #ec3f62;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}

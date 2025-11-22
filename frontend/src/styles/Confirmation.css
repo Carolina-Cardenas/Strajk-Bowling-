@@ -1,6 +1,6 @@
-@import "../styles/mobile.css";
-
 .confirmation-page {
+
+    position: relative;
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 8px 18px 28px;
